@@ -3,7 +3,7 @@ import { getUserImages } from '@/lib/fetch';
 const page = async ({ params }) => {
   const userId = params.id;
   const images = await getUserImages(userId);
-  if (images.length === 0) {
+  if (images?.length === 0) {
     return (
       <div className="flex gap-4 items-center justify-center h-screen">
         <svg

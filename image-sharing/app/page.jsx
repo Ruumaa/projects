@@ -3,7 +3,7 @@ import LightboxOpen from './components/Lightbox/LightboxOpen';
 
 export default async function Home() {
   const images = await getImages();
-  if (images.data.length === 0) {
+  if (images.data?.length === 0) {
     return (
       <div className="flex gap-4 items-center justify-center h-screen">
         <svg

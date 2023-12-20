@@ -36,7 +36,7 @@ const UserImages = ({ images }) => {
   return (
     <div>
       <div className="max-w-7xl m-8 grid grid-cols-4 gap-4 ">
-        {images.map((image, index) => (
+        {images?.map((image, index) => (
           <div key={index} className="w-full h-80 relative">
             <div
               className="absolute top-0 right-0 m-2 p-2 cursor-pointer opacity-50 transition-opacity duration-300 hover:opacity-100"
