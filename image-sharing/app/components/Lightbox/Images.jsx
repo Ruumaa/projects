@@ -8,7 +8,7 @@ const Images = (props) => {
   };
   return (
     <div className="max-w-7xl m-8 grid grid-cols-4 gap-4">
-      {images.data.map((image, index) => (
+      {images.data?.map((image, index) => (
         <div
           key={index}
           className="w-full h-80 cursor-pointer"
