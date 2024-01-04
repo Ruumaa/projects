@@ -13,6 +13,8 @@ RUN npm install
 # Generate Prisma Client
 RUN npx prisma generate
 
-EXPOSE 5000
+# RUN npx prisma migrate dev
 
-CMD ["npm", "run", "dev"]
+EXPOSE 3000
+
+CMD ["npm", "run", "dev:docker"]

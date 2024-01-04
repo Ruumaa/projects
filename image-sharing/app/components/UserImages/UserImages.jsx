@@ -40,7 +40,6 @@ const UserImages = ({ images }) => {
           <div key={index} className="w-full h-80 relative">
             <div
               className="absolute top-0 right-0 m-2 p-2 cursor-pointer opacity-50 transition-opacity duration-300 hover:opacity-100"
-              // onClick={() => handleModal(image.id)}
               onClick={handleModal}
             >
               <svg
