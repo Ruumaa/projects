@@ -1,8 +1,20 @@
 import { BASE_URL } from './base_url';
 
 export const getImages = async () => {
-  const response = await fetch(`${BASE_URL}/api/images`, { cache: 'no-store' });
-  return await response.json();
+  try {
+    const response = await fetch(`${BASE_URL}/api/images`, {
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching images:', error);
+    throw error; // Rethrow the error for further handling
+  }
 };
 
 export const uploadeImage = async (userId, imageUrl) => {
