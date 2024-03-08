@@ -4,6 +4,11 @@ import { NextResponse } from 'next/server';
 export const GET = async () => {
   try {
     const blogs = await prisma.blog.findMany({
+      orderBy: [
+        {
+          created_at: 'desc',
+        },
+      ],
       include: {
         Comment: true,
       },

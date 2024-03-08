@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { MdOutlinePostAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import { CgList } from 'react-icons/cg';
 
 const HandleUserBlog = ({ session }) => {
   const router = useRouter();
@@ -14,13 +14,11 @@ const HandleUserBlog = ({ session }) => {
   };
   return (
     <div>
-      <div>
-        <button
-          className="btn btn-ghost text-secondary ml-7"
-          onClick={() => handleBlog(session)}
-        >
-          <MdOutlinePostAdd size={25} />
-        </button>
+      <div
+        className="text-secondary flex items-center font-semibold gap-3"
+        onClick={() => handleBlog(session)}
+      >
+        <CgList size={25} /> My Blogs
       </div>
     </div>
   );

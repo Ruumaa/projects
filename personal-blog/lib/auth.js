@@ -2,19 +2,18 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from './prisma';
 import { compare } from 'bcrypt';
-// import { redirect } from 'next/dist/server/api-utils';
 
 export const authOptions = {
+  adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: 'jwt',
+  },
+  pages: {
+    signIn: '/auth/sign-in',
+  },
   providers: [
     CredentialsProvider({
-      adapter: PrismaAdapter(prisma),
-      secret: process.env.NEXTAUTH_SECRET,
-      session: {
-        strategy: 'jwt',
-      },
-      pages: {
-        signIn: '/auth/sign-in',
-      },
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email', placeholder: 'john@mail.com' },
@@ -33,13 +32,15 @@ export const authOptions = {
           if (!existingUser) {
             return null;
           }
-          const passwordMatch = compare(
-            credentials.password,
-            existingUser.password
-          );
 
-          if (!passwordMatch) {
-            return null;
+          if (existingUser.password) {
+            const passwordMatch = await compare(
+              credentials.password,
+              existingUser.password
+            );
+            if (!passwordMatch) {
+              return null;
+            }
           }
 
           return {
@@ -47,7 +48,6 @@ export const authOptions = {
             username: existingUser.username,
             email: existingUser.email,
           };
-          // redirect('http://localhost:3000/');
         } catch (error) {
           console.error(error);
         }

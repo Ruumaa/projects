@@ -26,7 +26,13 @@ export const POST = async (req) => {
 
 export const GET = async () => {
   try {
-    const response = await prisma.comment.findMany();
+    const response = await prisma.comment.findMany({
+      orderBy: [
+        {
+          created_at: 'desc',
+        },
+      ],
+    });
     return NextResponse.json(
       { message: 'GET data comment success ', data: response },
       { status: 200 }

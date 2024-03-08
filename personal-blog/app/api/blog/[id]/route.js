@@ -54,6 +54,9 @@ export const GET = async (req, context) => {
       where: {
         id: params.id,
       },
+      include: {
+        Comment: true,
+      },
     });
     return NextResponse.json(
       { message: 'Get Blog successfully', data: response },

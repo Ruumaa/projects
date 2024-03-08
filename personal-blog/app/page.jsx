@@ -24,7 +24,7 @@ export default async function Home() {
       <div className="divider mb-10"></div>
       <div className="grid grid-cols-2 w-full gap-5 mb-10">
         {blogs.data.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
+          <BlogCard key={blog.id} blog={blog} isComment={false} />
         ))}
       </div>
     </div>

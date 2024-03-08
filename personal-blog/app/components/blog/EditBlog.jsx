@@ -22,7 +22,7 @@ const EditBlog = ({ id, userId, blogData }) => {
     const result = await response.json();
     if (response.ok) {
       toast.success(`${result.message}`);
-      router.push('/');
+      router.push(`/blog/user/${userId}`);
       router.refresh();
     } else {
       toast.error(`${result.message}`);

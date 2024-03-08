@@ -15,12 +15,12 @@ const HandleAddBlog = ({ session }) => {
   };
   return (
     <div>
-      <button
-        className="btn btn-ghost text-secondary ml-7"
+      <div
+        className="text-secondary flex items-center font-semibold gap-3"
         onClick={() => handleAdd(session)}
       >
-        <MdOutlinePostAdd size={25} />
-      </button>
+        <MdOutlinePostAdd size={25} /> Add Blog
+      </div>
     </div>
   );
 };
