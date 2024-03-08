@@ -1,4 +1,5 @@
 'use client';
+import { base_url } from '@/lib/base_url';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
@@ -11,9 +12,8 @@ const DeleteBlog = ({ id, title }) => {
     setOpen(!open);
   };
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/api/todo/${id}`, { method: 'DELETE' });
-    toast.success('Delete todo success');
-    router.push('/');
+    await fetch(`${base_url}/api/blog/${id}`, { method: 'DELETE' });
+    toast.success('Delete blog success');
     router.refresh();
     setOpen(false);
   };

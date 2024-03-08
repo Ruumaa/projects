@@ -20,7 +20,9 @@ const HandleSignOut = ({ session }) => {
       >
         <div className="flex items-center gap-1">
           <FaRegUser size={18} className="text-secondary" />
-          <h3 className="text-slate-300">{session ? 'LOG OUT' : 'LOG IN'} </h3>
+          <h3 className="text-slate-300 font-bold font-mono">
+            {session ? 'Logout' : 'Login'}{' '}
+          </h3>
         </div>
       </button>
     </div>

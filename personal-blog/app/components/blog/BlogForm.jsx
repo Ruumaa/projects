@@ -2,7 +2,7 @@
 
 import Image from 'next/legacy/image';
 import { useForm } from 'react-hook-form';
-import abstracPic from '@/public/abstrac.jpg';
+import abstracPic from '@/public/abstrac2.webp';
 
 const BlogForm = ({ isEditing, submit, initialValues }) => {
   const {
@@ -22,7 +22,7 @@ const BlogForm = ({ isEditing, submit, initialValues }) => {
                   layout="fill"
                   sizes="(max-width: 768px) 100vw"
                   objectFit="cover"
-                  alt="login"
+                  alt="blogForm"
                   placeholder="blur"
                   className="rotate-180"
                 />
@@ -60,8 +60,8 @@ const BlogForm = ({ isEditing, submit, initialValues }) => {
                   <p className="text-red-600 m-px">Title is required</p>
                 )}
                 <label className="label font-medium">Content</label>
-                <input
-                  className="input bg-primary text-slate-200  rounded-full"
+                <textarea
+                  className="textarea bg-primary text-slate-200  rounded-3xl"
                   placeholder="What's on your mind? Elaborate here..."
                   {...register('content', { required: true })}
                 />
@@ -99,7 +99,7 @@ const BlogForm = ({ isEditing, submit, initialValues }) => {
                   layout="fill"
                   sizes="(max-width: 768px) 100vw"
                   objectFit="cover"
-                  alt="login"
+                  alt="blogForm"
                   placeholder="blur"
                 />
                 <div className="absolute inset-0 flex flex-col text-center text-slate-200 items-center justify-center text-2xl z-50 bg-primary opacity-80 ">
